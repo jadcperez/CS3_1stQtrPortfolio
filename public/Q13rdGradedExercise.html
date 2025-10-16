@@ -1,0 +1,27 @@
+<h1>Q1 3rd Graded Exercise submittted by name of section</h1>
+
+<label for="MealPrice">Meal Price: </label>
+<input id="MealPrice" type="number" > <br>
+<label for="Tip">tip: </label>
+<input id="Tip" type="number" > <br>
+<label for="ServiceCharge">Service Charge: </label>
+<input id="ServiceCharge" type="number" > <br>
+
+<button onclick="printTotalMeal()"> Accept input </button>
+
+<p>Total Meal: </p>
+
+<div id="TotalOutput"></div>
+
+<script>
+    function printTotalMeal() {
+
+        mealPrice = Number(MealPrice.value);      
+        tip = Number(document.getElementById("Tip").value);    
+        serviceCharge = Number(ServiceCharge.value);    
+
+        total = (mealPrice + tip) + (mealPrice * serviceCharge / 100);
+
+        TotalOutput.innerHTML = "Total Amount: Php" + total.toFixed(2);
+    }
+</script>
