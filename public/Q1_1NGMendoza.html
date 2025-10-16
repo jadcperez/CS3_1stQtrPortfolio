@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mendoza, Aline Teresa Portfolio</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+</head>
+<body>
+    <label> Enter your current maxAge
+        <input id="age"/>
+    </label> <br/>
+    <label> Enter your target year of max age
+        <input id="maxAge"/>
+    </label><br/>
+    <label> Enter number of snacks
+        <input id="numPerDay"/>
+    </label>
+    <p><button onclick = "showResult()">Calculate</button></p>
+    <p> The result is : <span id="result"></span></p>
+    <script>
+    /* version3, this time using an input box */
+    function showResult() {
+        let age = Number(document.getElementById("age").value); // Get current age from input
+        let maxAge = Number(document.getElementById("maxAge").value); // Get target max age from input
+        let numPerDay = Number(document.getElementById("numPerDay").value); // Get number of snacks per day from input
+        
+        if (age && maxAge && numPerDay) { // Check if all inputs are provided
+            let totalItems = (maxAge - age) * 365 * numPerDay; // Calculate total items
+            document.getElementById("result").innerText = `If you continue at this rate, you will consume approximately ${totalItems} items until age ${maxAge}.`;
+        } else {
+            document.getElementById("result").innerText = "Please fill in all fields.";
+        }
+    }
+
+
+
+
+    /* version 2 this time using windwow.prompt() and window.confirm() 
+        let age = window.prompt("Enter your current age:", 14); // Example age
+        let maxAge = window.prompt("Enter your age you want to live until:", 100); // Example maximum age
+        let numPerDay = window.prompt("Enter number of snacks per day", 2); // Example number of items consumed per day
+        if (window.confirm("Are you sure of your input?")) {
+            let totalItems = (maxAge - age) * 365 * numPerDay; // Calculate total items
+            document.write(`If you continue at this rate, you will consume approximately ${totalItems} items until age ${maxAge}.`);
+        }
+        else {
+            document.write("Please try again with correct inputs.");
+        }
+    */
+
+    /* First Version of the Code just defining variables, output will not change 
+        let age = 25; // Example age
+        let maxAge = 100; // Example maximum age
+        let numPerDay = 5; // Example number of items consumed per day
+        let totalItems = (maxAge - age) * 365 * numPerDay; // Calculate total items
+        // writes on the browser
+        document.write(`If you continue at this rate, you will consume approximately ${totalItems} items until age ${maxAge}.`);
+        // writes on a browser's console
+        console.log(`If you continue at this rate, you will consume approximately ${totalItems} items until age ${maxAge}.`);
+        // writes on a pop-up dialog box
+        window.alert(`If you continue at this rate, you will consume approximately ${totalItems} items until age ${maxAge}.`);
+    */
+    </script>
+</body>
+</html>
