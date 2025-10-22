@@ -1,6 +1,32 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  border: 1px;
+  padding: 3px;
+  font-size: 50px;
+  text-align: center; 
+}
 body {
     background-image: url('nice.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
   }
+h2 {
+  background-color: #b2e0ed;
+}
+p {
+  background-color: #b2e0ed;
+}
+#_blank{
+  font-family: Impact, 'Arial Narrow Bold', 'Times New Roman';
+}
+#_no{
+  font-family:'Courier New', Courier, monospace;
+}
+#_blank:hover{
+  font-family: 'Courier New', Courier, monospace;
+}
+#_no:hover{
+  font-family: Impact, 'Arial Narrow Bold', 'Times New Roman';
+}
