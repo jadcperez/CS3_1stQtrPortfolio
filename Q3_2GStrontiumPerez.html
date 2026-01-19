@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Club Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Club Application Form</h1>
+    <form action="/submit-application" method="post">
+        <label for="studentid">Student ID:</label><br>
+        <input type="number" id="studentid" name="studentid" required><br><br>
+
+        <label for="name">Full Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="age">Birthday:</label><br>
+        <input type="date" id="age" name="age" required><br><br>
+
+        <label for="email">Email address:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="email">Mobile phone:</label><br>
+        <input type="text" id="email" name="email" required><br><br>
+
+        <label for="level">Grade Level:</label><br>
+        <select id="level" name="level" required>
+            <option value="g7">Grade 7</option>
+            <option value="g8">Grade 8</option>
+            <option value="g9">Grade 9</option>
+            <option value="g10">Grade 10</option>
+            <option value="g11">Grade 11</option>
+            <option value="g12">Grade 12</option>
+        </select><br><br>
+
+        <label for="tern">Intern / Extern:</label><br>
+        <input type="radio" id="intern" name="tern" value="intern" required>
+        <label for="intern">Intern</label><br>
+        <input type="radio" id="extern" name="tern" value="extern" required>
+        <label for="extern">Extern</label><br>
+
+        <label for="club">Preferred Club:</label><br>
+        <select id="club" name="club" required>
+            <option value="science_club">Science Club</option>
+            <option value="math_club">Math Club</option>
+            <option value="art_club">Art Club</option>
+            <option value="sports_club">Sports Club</option>
+            <option value="music_club">Music Club</option>
+        </select><br><br>
+
+        <label for="reason">Why do you want to join:</label><br>
+        <textarea id="reason" name="reason" rows="4" cols="50" required></textarea><br><br>
+
+        <button type="submit" class="hover-button">Submit Application</button>
+        <button type="reset" class="hover-button" onclick="return confirm('Are you sure you want to reset the form?')">Reset Form</button>
+    
+    </form>
+</body>
+</html>
