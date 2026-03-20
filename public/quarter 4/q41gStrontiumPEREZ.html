@@ -6,36 +6,45 @@
     <link rel="stylesheet" href="Hello.css">
 </head>
 <body>
-    <form >
-        <fieldset>
-            <h1>Add a Movie</h1>
-           <label for="title">Title:</label><br>
-           <input type="text" id="title" name="title" required><br><br>
+    <div class="container">
+        <form>
+            <fieldset>
+                <h1>Add a Movie</h1>
+               <label for="title">Title:</label><br>
+               <input type="text" id="title" name="title" required><br><br>
 
-           <label for="year">Year:</label><br>
-           <input type="number" id="year" name="year" min="1888" max="2026" required><br><br>
+               <label for="year">Year:</label><br>
+               <input type="number" id="year" name="year" min="1888" max="2026" required><br><br>
 
-           <label for="genre">Genre:</label><br>
-            <select id="genre" name="genre" required>
-                <option value="comedy">Comedy</option>
-                <option value="horror">Horror</option>
-                <option value="action">Action</option>
-                <option value="drama">Drama</option>
-            </select><br><br>
+               <label for="genre">Genre:</label><br>
+                <select id="genre" name="genre" required>
+                    <option value="">Select a genre</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="horror">Horror</option>
+                    <option value="action">Action</option>
+                    <option value="drama">Drama</option>
+                    <option value="sci-fi">Sci-Fi</option>
+                    <option value="fantasy">Fantasy</option>
+                </select><br><br>
 
-            <label for="rating">Rating:</label><br>
-            <div class="star-rating">
-                <span class="star" data-value="1">★</span>
-                <span class="star" data-value="2">★</span>
-                <span class="star" data-value="3">★</span>
-                <span class="star" data-value="4">★</span>
-                <span class="star" data-value="5">★</span>
-            </div>      
-              <script src="Hello.js"></script>
+                <label for="rating">Rating:</label><br>
+                <div class="star-rating">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>      
+                <button type="submit" class="hover-button">Add Movie</button>
+             </fieldset>
+        </form>
 
-            <button type="submit" class="hover-button">Add Movie</button>
-         </fieldset>
-    
-    </form>
+        <div class="movie-list-container">
+            <h2>Movie List</h2>
+            <div id="movie-list"></div>
+        </div>
+    </div>
+
+    <script src="Hello.js"></script>
 </body>
 </html>

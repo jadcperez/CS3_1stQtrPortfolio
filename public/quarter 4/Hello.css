@@ -13,6 +13,55 @@
     text-align: center;
     }
 
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+form {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #FFD700;
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
 .star {
   font-size: 2rem;
   color: gray;
@@ -21,5 +70,97 @@
 }
 
 .star.active {
-  color: yellow;
+  color: #FFD700;
+  text-shadow: 0 0 5px gold;
+}
+
+.hover-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #FFD700;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.hover-button:hover {
+  background-color: #FFC700;
+}
+
+.hover-button:active {
+  background-color: #FFB700;
+}
+
+/* Movie List Styles */
+.movie-list-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.movie-list-container h2 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 2px solid #FFD700;
+  padding-bottom: 15px;
+}
+
+#movie-list {
+  display: grid;
+  gap: 15px;
+}
+
+.movie-item {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 5px solid #FFD700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.movie-content {
+  text-align: left;
+  flex-grow: 1;
+}
+
+.movie-item h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.movie-stars {
+  font-size: 1.2rem;
+  color: #FFD700;
+  font-weight: bold;
+}
+
+.movie-item p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.delete-btn {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin-left: 15px;
+  white-space: nowrap;
+}
+
+.delete-btn:hover {
+  background-color: #cc0000;
 }
