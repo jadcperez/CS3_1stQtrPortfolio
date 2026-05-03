@@ -138,8 +138,16 @@ input:focus, select:focus {
 
 .movie-stars {
   font-size: 1.2rem;
-  color: #FFD700;
   font-weight: bold;
+}
+
+.filled-stars {
+  color: #FFD700;
+  text-shadow: 0 0 5px gold;
+}
+
+.empty-stars {
+  color: #888;
 }
 
 .movie-item p {

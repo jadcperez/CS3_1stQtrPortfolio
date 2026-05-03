@@ -40,15 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
     
-    // Create movie object
-    const movie = {
-      id: Date.now(),
-      title: title,
-      year: parseInt(year),
-      genre: genre,
-      rating: rating
-    };
-    
     // Get movies from localStorage
     let movies = [];
     const stored = localStorage.getItem('movies');
@@ -56,8 +47,36 @@ document.addEventListener('DOMContentLoaded', function() {
       movies = JSON.parse(stored);
     }
     
-    // Add new movie
-    movies.push(movie);
+    // Check if movie with same title already exists (case-insensitive)
+    const existingMovieIndex = movies.findIndex(m => m.title.toLowerCase() === title.toLowerCase());
+    
+    if (existingMovieIndex !== -1) {
+      // Movie exists - update it with averaged rating
+      const existingMovie = movies[existingMovieIndex];
+      const newRating = (existingMovie.rating + rating) / 2;
+      
+      movies[existingMovieIndex] = {
+        id: existingMovie.id,
+        title: title,
+        year: parseInt(year),
+        genre: genre,
+        rating: newRating
+      };
+      
+      alert(`Movie updated! Old rating: ${existingMovie.rating}/5, New rating: ${rating}/5\nAveraged rating: ${newRating.toFixed(1)}/5`);
+    } else {
+      // Movie doesn't exist - create new one
+      const movie = {
+        id: Date.now(),
+        title: title,
+        year: parseInt(year),
+        genre: genre,
+        rating: rating
+      };
+      
+      movies.push(movie);
+      alert('Movie added successfully!');
+    }
     
     // Save back to localStorage
     localStorage.setItem('movies', JSON.stringify(movies));
@@ -69,8 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Display updated list
     displayMovies();
-    
-    alert('Movie added successfully!');
   });
   
   // Display movies on page load
@@ -103,7 +120,9 @@ function displayMovies() {
   
   // Display each movie
   movies.forEach((movie) => {
-    const starDisplay = '★'.repeat(movie.rating);
+    const filledStars = '★'.repeat(movie.rating);
+    const emptyStars = '☆'.repeat(5 - movie.rating);
+    const starDisplay = filledStars + emptyStars;
     
     const movieDiv = document.createElement('div');
     movieDiv.className = 'movie-item';
@@ -112,7 +131,7 @@ function displayMovies() {
         <h3>${movie.title}</h3>
         <p><strong>Year:</strong> ${movie.year}</p>
         <p><strong>Genre:</strong> ${movie.genre}</p>
-        <p class="movie-stars"><strong>Rating:</strong> ${starDisplay} (${movie.rating}/5)</p>
+        <p class="movie-stars"><span class="filled-stars">${filledStars}</span><span class="empty-stars">${emptyStars}</span> (${movie.rating}/5)</p>
       </div>
       <button class="delete-btn" onclick="deleteMovie(${movie.id})">Delete</button>
     `;
@@ -123,6 +142,11 @@ function displayMovies() {
 
 // Delete movie function
 function deleteMovie(id) {
+  // Confirm deletion
+  if (!confirm('Are you sure you want to delete this movie?')) {
+    return;
+  }
+  
   // Get movies
   let movies = [];
   const stored = localStorage.getItem('movies');
